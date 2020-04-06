@@ -1,0 +1,67 @@
+﻿@model StreetLight.ViewModels.sened.SensorViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-hover table-bordered">
+    <thread class="thead-dark">
+        <tr class="thead-dark">
+
+            <th>名称</th>
+
+            <th>设备状况</th>
+            <th>生产厂商</th>
+            <th>删除传感器</th>
+
+        </tr>
+    </thread>
+
+    <tbody>
+        @foreach (var sensor in Model.Sensors)
+        {
+
+
+            <tr>
+
+                <td>
+                    @sensor.Name
+                </td>
+
+                <td>
+
+                    @sensor.Senwell
+                </td>
+                <td>
+                    @sensor.Sensour
+                </td>
+
+                <td class="table-danger">
+                    <a asp-controller="Sensor" asp-action="Delete" asp-route-id="@sensor.Id"
+                       onclick="javascript: return fun();">删除传感器</a>
+
+                </td>
+
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>
+<a asp-controller="Sensor" asp-action="Creatsensor" class="btn btn-outline-primary">添加传感器</a>
+<a asp-controller="Main" asp-action="Index" class="btn btn-secondary">返回</a>
+<script type="text/javascript">
+    function fun() {
+        var msg = "您真的要删除吗？\n\n请确认！";
+
+        if (confirm(msg) == true) {
+
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
+</script>

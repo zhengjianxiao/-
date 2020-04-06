@@ -1,0 +1,26 @@
+﻿@model int
+
+@{ 
+    ViewData["Title"] = "404错误找不到内容";
+
+}
+
+<div class="alert alert-danger mt-1 mb-1" >
+
+
+    <h3>404 No Foued 错误</h3>
+    
+    <hr />
+
+    <h4>查询不到路灯Id为@(Model)的信息</h4>
+
+</div>
+
+
+
+<a asp-controller="Light" asp-action="Index" class=" btn btn-outline-success"
+   
+   
+   style="width:auto"
+   
+   >点击此处查看路灯列表</a>

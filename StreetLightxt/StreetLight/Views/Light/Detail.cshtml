@@ -1,0 +1,162 @@
+﻿
+@model StreetLight.Models.Light
+
+
+@{
+
+    var photoPath = "~/images/" + (Model.PhotoPath ?? "light2.png");
+
+
+}}
+    <html>
+    <head>
+        <link href="~/css/cel.css" rel="stylesheet" />
+        <style>
+            .detail { 
+                       position:absolute;
+                       top:15%;
+                       right:40%; 
+                       width:300px;
+
+            }
+            .detail-main {
+                padding:5px;
+            }
+            .detail-main-lable {
+                font-weight:bold;
+                
+                
+                width:140px;
+            }
+            .detail-main-main {
+                display:inline-block;
+                margin-left:10px;
+            }
+            .detail-img {
+                position: absolute;
+                top: 15%;
+                left: 15%;
+                width:auto;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="detail">
+
+            <div class="detail-main">
+                <label class="detail-main-lable">
+                    路&nbsp&nbsp&nbsp灯&nbsp&nbsp&nbsp名&nbsp&nbsp&nbsp称&nbsp：
+                </label>
+                <div class="detail-main-main">
+                    @Model.Name
+                </div>
+            </div>
+
+
+            <div class="detail-main">
+                <label class="detail-main-lable">
+
+                    路&nbsp&nbsp&nbsp灯&nbsp&nbsp&nbsp经&nbsp&nbsp度&nbsp：
+                </label>
+                <div class="detail-main-main">
+                    @Model.Lng
+                </div>
+            </div>
+
+
+            <div class="detail-main">
+                <label class="detail-main-lable">
+
+                    路&nbsp&nbsp&nbsp灯&nbsp&nbsp&nbsp纬&nbsp&nbsp&nbsp度&nbsp：
+                </label>
+                <div class="detail-main-main">
+                    @Model.Lat
+
+                </div>
+            </div>
+
+            <div class="detail-main">
+                <label class="detail-main-lable">
+
+                    路&nbsp&nbsp&nbsp灯&nbsp&nbsp&nbsp状&nbsp&nbsp&nbsp况&nbsp：
+                </label>
+                <div class="detail-main-main">
+                    @Model.Iswell
+
+                </div>
+            </div>
+
+
+            <div class="detail-main">
+                <label class="detail-main-lable">
+
+                    路&nbsp灯&nbsp照&nbsp明&nbsp情&nbsp况：
+                </label>
+                <div class="detail-main-main">
+                    @Model.Iswork
+
+                </div>
+            </div>
+
+
+            <div class="detail-main">
+                <label class="detail-main-lable">
+                    路&nbsp&nbsp灯&nbsp&nbsp采&nbsp&nbsp集&nbsp&nbsp器：
+                </label>
+                <div class="detail-main-main">
+                    @Model.Celle
+
+                </div>
+            </div>
+
+
+            <div class="detail-main">
+                <label class="detail-main-lable">
+
+                    路&nbsp&nbsp灯&nbsp&nbsp控&nbsp&nbsp制&nbsp&nbsp器：
+                </label>
+                <div class="detail-main-main">
+                    @Model.Control
+
+                </div>
+            </div>
+
+
+            <div class="detail-main">
+                <label class="detail-main-lable">
+                    路&nbsp&nbsp灯&nbsp&nbsp传&nbsp&nbsp感&nbsp&nbsp器：
+                </label>
+                <div class="detail-main-main">
+                    @Model.Sens
+
+                </div>
+            </div>
+      
+
+
+
+
+
+
+            <div>
+                <a asp-controller="Light" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">编辑路灯</a>
+                <a asp-controller="Light" asp-action="Index" class="btn btn-secondary">返回</a>
+            </div>
+    </div>
+
+        <div class="detail-img">
+            <img src="@photoPath" asp-append-version="true" />
+
+        </div>
+
+    </body>
+    </html>
+
+
+
+
+
+
+

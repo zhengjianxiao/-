@@ -1,0 +1,67 @@
+﻿@model StreetLight.ViewModels.cont.ConvectorViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-hover table-bordered">
+    <thread class="thead-dark">
+        <tr class="thead-dark">
+
+            <th>名称</th>
+
+            <th>设备状况</th>
+            <th>生产厂商</th>
+            <th>删除控制器</th>
+
+        </tr>
+    </thread>
+
+    <tbody>
+        @foreach (var contro in Model.Convectors)
+        {
+
+
+            <tr>
+
+                <td>
+                    @contro.Name
+                </td>
+
+                <td>
+
+                    @contro.Conwell
+                </td>
+                <td>
+                    @contro.Consour
+                </td>
+
+                <td class="table-danger">
+                    <a asp-controller="Cont" asp-action="Delete" asp-route-id="@contro.Id"
+                       onclick="javascript: return fun();">删除控制器</a>
+
+                </td>
+
+            </tr>
+
+        }
+
+    </tbody>
+
+</table>
+<a asp-controller="Cont" asp-action="Creatcontro" class="btn btn-outline-primary">添加控制器</a>
+<a asp-controller="Main" asp-action="Index" class="btn btn-secondary">返回</a>
+<script type="text/javascript">
+    function fun() {
+        var msg = "您真的要删除吗？\n\n请确认！";
+
+        if (confirm(msg) == true) {
+
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
+</script>

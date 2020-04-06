@@ -1,0 +1,85 @@
+﻿@model StreetLight.ViewModels.LightViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+<div>
+
+    
+
+
+</div>
+
+<table class="table table-hover table-bordered">
+    <thread class="thead-dark">
+        <tr class="thead-dark">
+           
+            <th >名称</th>
+
+            <th >路灯状况</th>
+            <th >是否正在使用</th>
+            <th >详情页面</th>
+            <th >删除路灯</th>
+        </tr>
+    </thread>
+
+    <tbody>
+        @foreach (var light in Model.Lights)
+        {
+          
+           
+        <tr>
+           
+            <td >
+                @light.Name
+            </td>
+
+            <td >
+
+                @light.Iswell
+            </td>
+            <td >
+                @light.Iswork
+            </td>
+            <td class="table-primary">
+                <a asp-controller="Light" asp-action="Detail" asp-route-id="@light.Id" >路灯详情</a>
+
+            </td>
+            <td class="table-danger">
+                <a asp-controller="Light" asp-action="Delete" asp-route-id="@light.Id" 
+                   
+                   onclick="javascript: return fun();"
+                   
+                   >删除路灯</a>
+
+            </td>
+        </tr>
+  
+        }
+
+    </tbody>
+
+</table>
+<a asp-controller="Light" asp-action="CreatLight" class="btn btn-outline-primary">添加路灯</a>
+<a asp-controller="Main" asp-action="Index" class="btn btn-secondary">返回</a>
+
+<script type="text/javascript">
+    function fun() {
+        var msg = "您真的要删除吗？\n\n请确认！";
+        
+        if (confirm(msg) == true) {
+            
+            return true;            
+        }
+        else {
+            return false;
+        }
+    
+    }
+
+</script>
+
+

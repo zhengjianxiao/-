@@ -1,0 +1,51 @@
+﻿@model StreetLight.ViewModels.LightViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+
+<table class="table table-hover table-bordered">
+    <thread class="thead-dark">
+        <tr class="thead-dark">
+
+            <th>名称</th>
+
+            <th>路灯状况</th>
+           
+            <th>详情页面</th>
+            
+        </tr>
+    </thread>
+
+    <tbody>
+        @foreach (var light in Model.Lights)
+        {
+            if (light.Iswell == "损坏") { 
+
+            <tr>
+                <td>
+                    @light.Name
+                </td>
+                <td>
+
+                    @light.Iswell
+                </td>
+                
+                <td class="table-primary">
+                    <a asp-controller="Light" asp-action="Detail" asp-route-id="@light.Id">路灯详情</a>
+
+                </td>
+                
+            </tr>
+            }
+
+        }
+
+    </tbody>
+
+</table>
+<a asp-controller="Main" asp-action="Index" class="btn btn-secondary">返回</a>

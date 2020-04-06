@@ -1,0 +1,22 @@
+﻿body {
+    
+}
+.table-cellect {
+    background-color:aquamarine;
+    text-align:center;
+    margin:auto;
+    border:solid red;
+   
+}
+.cel-id {
+    width:100px;
+    height:50px;
+    border:dashed blue;
+
+}
+.cel-name {
+    width:200px;
+    border:dashed blue;
+}
+
+
